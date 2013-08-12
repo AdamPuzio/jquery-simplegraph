@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Graph</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!-- Bootstrap -->
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+	<link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen" />
+	
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="js/jquery.ba-resize.js"></script>
+	<script src="js/graph.js"></script>
+	
+	<style type="text/css">
+		.navbar {
+			margin-bottom: 0;
+		}
+		.navbar-inner {
+			min-height: 20px;
+		}
+		.navbar .nav>li>a {
+			padding: 5px 10px;
+		}
+		.graph {
+			margin: 5px auto;
+		}
+		.span6 h4 {
+			margin-left: 10px;
+		}
+	</style>
+</head>
+<body>
+
+<div class="container">
+	<div class="row-fluid">
+		<div class="span12">
+			<h2>Examples</h2>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span6">
+			<div><h4>Default Settings</h4></div>
+			<div class="navbar">
+				<div class="navbar-inner">
+					<ul class="nav">
+						<li><a class="btn-refresh" href="#"><i class="icon-refresh"></i> Data</a></li>
+						<li><a class="btn-resize" href="#" data-resize-type="both" data-resize-value="50"><i class="icon-resize-full"></i></a></li>
+						<li><a class="btn-resize" href="#" data-resize-type="both" data-resize-value="-50"><i class="icon-resize-small"></i></a></li>
+						<li><a class="btn-resize" href="#" data-resize-type="height" data-resize-value="50">H +50</a></li>
+						<li><a class="btn-resize" href="#" data-resize-type="height" data-resize-value="-50">H -50</a></li>
+						<li><a class="btn-resize" href="#" data-resize-type="width" data-resize-value="50">W +50</a></li>
+						<li><a class="btn-resize" href="#" data-resize-type="width" data-resize-value="-50">W -50</a></li>
+					</ul>
+				</div>
+			</div>
+			<div>
+				<div id="graph1" class="graph" style="width:300px; height:200px; border:1px solid #CCC;"></div>
+			</div>
+		</div>
+		<div class="span6">
+			<div><h4>No 3D, Shadow, Threshold</h4></div>
+			<div class="navbar">
+				<div class="navbar-inner">
+					<ul class="nav">
+						<li><a class="btn-refresh" href="#"><i class="icon-refresh"></i> Data</a></li>
+						<li><a class="btn-resize" href="#" data-resize-type="both" data-resize-value="50"><i class="icon-resize-full"></i></a></li>
+						<li><a class="btn-resize" href="#" data-resize-type="both" data-resize-value="-50"><i class="icon-resize-small"></i></a></li>
+						<li><a class="btn-resize" href="#" data-resize-type="height" data-resize-value="50">H +50</a></li>
+						<li><a class="btn-resize" href="#" data-resize-type="height" data-resize-value="-50">H -50</a></li>
+						<li><a class="btn-resize" href="#" data-resize-type="width" data-resize-value="50">W +50</a></li>
+						<li><a class="btn-resize" href="#" data-resize-type="width" data-resize-value="-50">W -50</a></li>
+					</ul>
+				</div>
+			</div>
+			<div>
+				<div id="graph2" class="graph" style="width:300px; height:200px; border:1px solid #CCC;"></div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row-fluid">
+		<div class="span6">
+			<div><h4>Max value with increments</h4></div>
+			<div class="navbar">
+				<div class="navbar-inner">
+					<ul class="nav">
+						<li><a class="btn-refresh" href="#"><i class="icon-refresh"></i> Data</a></li>
+						<li><a class="btn-resize" href="#" data-resize-type="both" data-resize-value="50"><i class="icon-resize-full"></i></a></li>
+						<li><a class="btn-resize" href="#" data-resize-type="both" data-resize-value="-50"><i class="icon-resize-small"></i></a></li>
+						<li><a class="btn-resize" href="#" data-resize-type="height" data-resize-value="50">H +50</a></li>
+						<li><a class="btn-resize" href="#" data-resize-type="height" data-resize-value="-50">H -50</a></li>
+						<li><a class="btn-resize" href="#" data-resize-type="width" data-resize-value="50">W +50</a></li>
+						<li><a class="btn-resize" href="#" data-resize-type="width" data-resize-value="-50">W -50</a></li>
+					</ul>
+				</div>
+			</div>
+			<div>
+				<div id="graph3" class="graph" style="width:400px; height:200px; border:1px solid #CCC;"></div>
+			</div>
+		</div>
+		<div class="span6">
+			<div><h4>10px margin</h4></div>
+			<div class="navbar">
+				<div class="navbar-inner">
+					<ul class="nav">
+						<li><a class="btn-refresh" href="#"><i class="icon-refresh"></i> Data</a></li>
+						<li><a class="btn-resize" href="#" data-resize-type="both" data-resize-value="50"><i class="icon-resize-full"></i></a></li>
+						<li><a class="btn-resize" href="#" data-resize-type="both" data-resize-value="-50"><i class="icon-resize-small"></i></a></li>
+						<li><a class="btn-resize" href="#" data-resize-type="height" data-resize-value="50">H +50</a></li>
+						<li><a class="btn-resize" href="#" data-resize-type="height" data-resize-value="-50">H -50</a></li>
+						<li><a class="btn-resize" href="#" data-resize-type="width" data-resize-value="50">W +50</a></li>
+						<li><a class="btn-resize" href="#" data-resize-type="width" data-resize-value="-50">W -50</a></li>
+					</ul>
+				</div>
+			</div>
+			<div>
+				<div id="graph4" class="graph" style="width:300px; height:200px; border:1px solid #CCC;"></div>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+<script>
+function refreshData(el){
+	var el = $(el).parents('.span6').find('.graph');
+	var data = [['Jan', Math.random() * 100], ['Feb', Math.random() * 100], ['Mar', Math.random() * 100]];
+	el.simplegraph(data);
+}
+function resizeEl(el, options){
+	var options = $.extend({}, {
+		type: 'both'
+		, value: 50
+	}, options);
+	var w = $(el).width();
+	var h = $(el).height();
+	var val = parseInt(options.value);
+	if(options.type != 'height') $(el).width(w + val);
+	if(options.type != 'width') $(el).height(h + val);
+}
+
+$(function(){
+	// #graph1
+	var data = [{label: 'Jan', value: 15}, {label: 'Feb', value: 18}, {label: 'Mar', value: 25}];
+	var options = {
+		units: 'Mbps'
+	};
+	$('#graph1').simplegraph(data, options);
+	
+	// #graph2
+	var data = [['Jan', 10], ['Feb', 15], ['Mar', 12]];
+	var options = {
+		units: 'Mbps'
+		, thresholds: [35]
+		, is3d: false
+		, shadow: true
+	};
+	$('#graph2').simplegraph(data, options);
+	
+	// #graph3
+	var data = [
+		{label: 'Jan', value: 15}
+		, {label: 'Feb', value: 29}
+		, {label: 'Mar', value: 42}
+		, {label: 'Apr', value: 58}
+		, {label: 'May', value: 54}
+		, {label: 'Jun', value: 62}
+		, {label: 'Jul', value: 75}
+	];
+	var options = {
+		units: '%'
+		, maxValue: 100
+		, increments: 10
+		, margin: 10
+	};
+	$('#graph3').simplegraph(data, options);
+	
+	// #graph4
+	var data = [['Comcast', 30], ['Verizon', 15], ['RCN', 12]];
+	var options = {
+		units: 'Mbps'
+		, margin: 10
+		, color: '#FF0000'
+	};
+	$('#graph4').simplegraph(data, options);
+	
+	// barclick handler
+	$('.graph').on('barclick', function(e, obj){
+		console.log('barclick on ' + obj.data.label);
+	});
+	
+	// resize handler - requires jquery.ba-resize.js
+	$('.graph').resize(function(){
+		$(this).simplegraph('resize');
+	});
+	
+	// Refresh button handler
+	$('.btn-refresh').click(function(e){
+		e.preventDefault();
+		var el = $(this).parents('.span6').find('.graph');
+		refreshData(el);
+	});
+	
+	// Resize button handler
+	$('.btn-resize').click(function(e){
+		e.preventDefault();
+		var btn = $(this);
+		var defaults = {
+			type: 'both'
+			, value: 50
+		};
+		var options = {};
+		for(var d in defaults){
+			var val = defaults[d];
+			if(btn.attr('data-resize-' + d)){
+				val = btn.attr('data-resize-' + d);
+			}
+			options[d] = val;
+		}
+		var el = $(this).parents('.span6').find('.graph');
+		resizeEl(el, options);
+	});
+});
+</script>
+
+
+</body>
+</html>
